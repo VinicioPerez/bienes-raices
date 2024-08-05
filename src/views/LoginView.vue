@@ -1,4 +1,17 @@
 <script setup>
+    import { useForm, useField } from 'vee-validate';
+    import { loginSchema } from '@/validation/LoginSchema';
+
+    const {handleSubmit} = useForm({validationSchema: loginSchema})
+
+    const email = useField('email')
+    const password = useField('password')
+
+    const submit = handleSubmit(() => {
+        console.log('Submit....')
+    })
+
+
 
 </script>
 
@@ -25,18 +38,24 @@
                 type="email"
                 label="Email"
                 color="blue-darken-1" 
-                clearable              
                 bg-color="blue-grey-lighten-5"
+                class="mb-4"
+                v-model="email.value.value"
+                :error-messages="email.errorMessage.value"
             />
             <v-text-field
                 type="password"
                 label="Password"
-                color="blue-darken-1"               
+                color="blue-darken-1"   
                 bg-color="blue-grey-lighten-5"
+                class="mb-4"            
+                v-model="password.value.value"
+                :error-messages="password.errorMessage.value"
             />
             <v-btn
                 block
                 color="blue-darken-2"
+                @click="submit"
             >
                 Iniciar Sesión
             </v-btn>
