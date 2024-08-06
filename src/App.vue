@@ -1,10 +1,8 @@
 <script setup>
 import { RouterView } from 'vue-router'
-import { storeToRefs } from 'pinia';
 import { useAuthStore } from './stores/auth';
 
 const auth = useAuthStore()
-const { isAuth } = storeToRefs(auth)
 
 </script>
 
@@ -26,9 +24,9 @@ const { isAuth } = storeToRefs(auth)
           </v-btn>
         </template> 
         <template v-slot:append>
-          <div v-if="isAuth">
+          <div v-if="auth.isAuth">
             <v-btn :to="{name: 'admin-propiedades'}">Admin</v-btn>  
-            <v-btn>Cerrar Sesión</v-btn>
+            <v-btn @click="auth.logout">Cerrar Sesión</v-btn>
           </div>
           <div v-else>
             <v-btn :to="{name: 'home'}">Inicio</v-btn>  
