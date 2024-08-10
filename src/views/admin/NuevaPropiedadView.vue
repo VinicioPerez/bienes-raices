@@ -4,12 +4,12 @@
     import { collection, addDoc } from 'firebase/firestore';
     import { useFirestore } from 'vuefire';
     import { useRouter } from 'vue-router';
+    import { validationSchema, imageSchema} from '@/validation/propiedadSchema'
     import useImage from '@/composables/useImage';
     import useLocationMap from '@/composables/useLocationMap';
     import "leaflet/dist/leaflet.css";
     import { LMap, LTileLayer, LMarker } from "@vue-leaflet/vue-leaflet";
 
-    import { validationSchema, imageSchema} from '@/validation/propiedadSchema'
 
 
    

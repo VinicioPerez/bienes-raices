@@ -26,7 +26,7 @@ export default function useImage(){
 
     return{
         url,
-        image,
         uploadImage,
+        image,
     }
 }
